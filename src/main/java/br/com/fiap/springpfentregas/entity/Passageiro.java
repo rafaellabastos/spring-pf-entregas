@@ -20,4 +20,14 @@ public class Passageiro {
     @SequenceGenerator(name = "SQ_PASSAGEIRO", sequenceName = "SQ_PASSAGEIRO", allocationSize = 1)
     @Column(name = "ID_PASSAGEIRO")
     private Long id;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(
+            name = "PESSOA",
+            referencedColumnName = "ID_PESSOA",
+            foreignKey = @ForeignKey(
+                    name = "FK_PASSAGEIRO_PESSOA"
+            )
+    )
+    private Pessoa pessoa;
 }
