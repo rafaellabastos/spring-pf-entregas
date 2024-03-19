@@ -85,13 +85,23 @@ public class Viagem {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(
-            name = "ENDERECO",
+            name = "ENDERECO_ORIGEM",
             referencedColumnName = "ID_ENDERECO",
             foreignKey = @ForeignKey(
-                    name = "FK_ENDERECO_PESSOA"
+                    name = "FK_ENDERECO_ORIGEM_PESSOA"
             )
     )
     private Endereco origem;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(
+            name = "ENDERECO_DESTINO",
+            referencedColumnName = "ID_ENDERECO",
+            foreignKey = @ForeignKey(
+                    name = "FK_ENDERECO_DESTINO_PESSOA"
+            )
+    )
+
     private Endereco destino;
 
     private LocalDateTime saida;
