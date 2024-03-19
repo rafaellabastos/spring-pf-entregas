@@ -18,11 +18,20 @@ public class ProdutoResource {
     @Autowired
     ProdutoRepository repo;
 
-    @Autowired
-    ViagemRepository viagemRepository;
+    @GetMapping
+    public List<Produto> findAll() {
+        return repo.findAll();
+    }
 
     @GetMapping(value = "/{id}")
     public Produto findById(@PathVariable Long id) {
         return repo.findById(id).orElseThrow();
+    }
+
+    @Transactional
+    @PostMapping
+    public Produto save(@RequestBody Produto p) {
+        p.setId(null);
+        return repo.save(p);
     }
 }
