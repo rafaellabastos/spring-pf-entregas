@@ -1,4 +1,4 @@
-package br.com.fiap.springpfentregas.resources;
+package br.com.fiap.springpfentregas.resource;
 
 import br.com.fiap.springpfentregas.entity.Pessoa;
 import br.com.fiap.springpfentregas.repository.PessoaRepository;
